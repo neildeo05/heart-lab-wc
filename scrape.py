@@ -7,7 +7,7 @@ def takeLink(link):
     s = BeautifulSoup(page)
     cl="o-campaign-story mt-three-halves o-campaign-story--is-open"
 
-    with open('words.txt', 'w') as fp:
+    with open('gofund.txt', 'w') as fp:
 
         fp.write(str(s.findAll('div', attrs = {
             'class': 'o-campaign-story mt-three-halves'
@@ -17,9 +17,6 @@ def takeLink(link):
 
 f = open('gm.html').read()
 soup = BeautifulSoup(f)
-
-
-
 for link in soup.findAll('a', attrs = {'class':'campaign-tile-img--contain js-lazy'}): 
     print(link['href'])
     takeLink(link['href'])
